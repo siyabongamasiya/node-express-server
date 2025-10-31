@@ -5,7 +5,7 @@ const cors = require("cors");
 const app = express();
 const logger = require("./utils/logger");
 
-app.use(logger);
+// app.use(logger);
 
 app.get("/", (req, res) => {
   res.send("Hello World!");
