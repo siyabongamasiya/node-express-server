@@ -1,17 +1,18 @@
-require('dotenv').config()
-const express = require('express')
-const morgan = require('morgan')
-const cors = require('cors')
-const app = express()
+require("dotenv").config();
+const express = require("express");
 
-app.use(morgan('combined'))
+const cors = require("cors");
+const app = express();
+const logger = require("./utils/logger");
 
-app.get('/', (req, res) => {
-  res.send('Hello World!')
-})
+app.use(logger);
 
-const port = process.env.PORT || 3000
+app.get("/", (req, res) => {
+  res.send("Hello World!");
+});
+
+const port = process.env.PORT || 3000;
 
 app.listen(port, () => {
-  console.log(`Example app running on port http://localhost:${port} `)
-})
+  console.log(`Example app running on port http://localhost:${port} `);
+});
