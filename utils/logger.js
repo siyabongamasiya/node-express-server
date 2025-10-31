@@ -9,4 +9,7 @@ var accessLogStream = rfs.createStream('access.log', {
 })
 
 
-module.exports = morgan('combined', { stream: accessLogStream })
+const internalLogs = morgan('combined', { stream: accessLogStream })
+const externalLogs = morgan('dev')
+
+module.exports = [internalLogs,externalLogs]
